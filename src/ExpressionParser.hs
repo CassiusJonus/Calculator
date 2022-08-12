@@ -1,8 +1,3 @@
-
-{- |This module contains the definition for the abstract syntax tree (AST) for
-an arithmetic expression. It also contains a function for parsing an expression
-from a string implemented using Parsec.
--}
 module ExpressionParser
   ( MathExpr (..),
     parseMathExpr
@@ -22,13 +17,16 @@ data MathExpr = Num Int MathExpr
 
 number = do
   n <- many1 digit
+  spaces
   return ((Num read n :: Int))
 
 operand = try parenExpr <|> number
 
+parenExpr = do
+  char '('
+  e <- expr
+  char ')'
+  return e
 
-{- |This function parses an arithmetic expression from a string.
--}
-parseMathExpr :: String -> Either ParseError MathExpr
-pparseMathExpr = undefined
+
 
