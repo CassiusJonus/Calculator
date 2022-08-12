@@ -9,17 +9,23 @@ module ExpressionParser
   ) where
 
 import Text.ParseCombinators.Parsec
-import Text.Parser.Expression
-import Text.ParserCombinators.Parsec.Char
-import Text.ParserCombinators.Parsec.Combinator
+import Text.ParserCombinators.Parsec.Expr
 
-data MathExpr where
-  Number :: Int -> MathExpr
-  Plus :: MathExpr -> MathExpr -> MathExpr
-  Minus :: MathExpr -> MathExpr -> MathExpr
-  Times :: MathExpr -> MathExpr -> MathExpr
-  Div :: MathExpr -> MathExpr -> MathExpr
+
+data MathExpr = Num Int MathExpr
+  | Plus MathExpr MathExpr MathExpr
+  | Minus MathExpr MathExprMathExpr
+  | Times MathExpr MathExprMathExpr
+  | Div  MathExpr MathExpr MathExpr
   deriving (Show)
+
+
+number = do
+  n <- many1 digit
+  return ((Num read n :: Int))
+
+operand = try parenExpr <|> number
+
 
 {- |This function parses an arithmetic expression from a string.
 -}
