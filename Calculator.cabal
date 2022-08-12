@@ -23,8 +23,8 @@ extra-source-files: CHANGELOG.md
 executable Calculator
     main-is:          Main.hs
 
-    -- Modules included in this executable, other than Main.
-    -- other-modules:
+     --Modules included in this executable, other than Main.
+     other-modules:ArithmeticParsers
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:

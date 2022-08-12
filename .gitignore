@@ -1,5 +1,10 @@
--- VS Code
+# VS Code
 
 .history
 .vscode
+
+# Haskell and Cabal
+
 dist-newstyle
+**/*.o
+**/*.hi
