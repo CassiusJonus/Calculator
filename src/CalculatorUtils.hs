@@ -1,4 +1,4 @@
-module ExpressionParser
+module CalculatorUtils
   ( MathExpr(..)
   , parseMathExpr
   ) where
