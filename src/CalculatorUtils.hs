@@ -1,6 +1,7 @@
 module CalculatorUtils
   ( MathExpr(..)
   , parseMathExpr
+  , evaluate
   ) where
 
 import           Data.Functor
@@ -76,5 +77,12 @@ mathExpr = do
   eof
   return result
 
-
 parseMathExpr = parse mathExpr "Invalid expression"
+
+evaluate :: MathExpr -> Int
+evaluate (Num    n ) = n
+evaluate (Negate n ) = (-(evaluate n))
+evaluate (Plus  x y) = evaluate x + evaluate y
+evaluate (Minus x y) = evaluate x - evaluate y
+evaluate (Times x y) = evaluate x * evaluate y
+evaluate (Div   x y) = evaluate x `div` evaluate y

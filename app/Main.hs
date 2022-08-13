@@ -1,6 +1,6 @@
 module Main where
 
-import           ExpressionParser
+import           CalculatorUtils
 
 main :: IO ()
 main = putStrLn "Hello, Haskell!"
