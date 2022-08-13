@@ -10,8 +10,6 @@ import           Text.Parsec                    ( ParseError )
 
 run :: IO ()
 run = do
-    putStrLn
-        "Enter an arithmetic expression or press \"q\" to quit(Includes addition, subtraction, multiplication, and division.)"
     expression <- getLine
     if map toLower expression == "q"
         then do
