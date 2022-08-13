@@ -32,7 +32,14 @@ number = do
 
 operand = try parenExpr <|> number
 
-parenExpr = between (char '(') (char ')') mathExpr <?> "simple expression"
+parenExpr =
+  do
+    char '('
+    e <- fullExpr
+    char ')'
+    spaces
+    return e
+  <?> "simple expression"
 
 
 
