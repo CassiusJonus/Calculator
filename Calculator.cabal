@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               Calculator
-version:            0.5.0.0
+version:            0.5.1.0
 synopsis:
     A simple Calculator with a terminal user interface that can perform arithmetic operations and exponentiation and logarithms
 
